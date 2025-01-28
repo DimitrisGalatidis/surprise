@@ -4,13 +4,13 @@ services:
   browser:
     build:
       context: .
-    depends_on:
-      - backend
+    image: grindev1996/browser-container:latest
     ports:
       - "8000:8000"
+    depends_on:
+      - backend
 
   backend:
-    build:
-      context: ./backend
+    image: kennethreitz/httpbin
     ports:
-      - "5000:5000"
+      - "5000:80"
